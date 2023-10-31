@@ -1,1 +1,36 @@
+Sept. 18, 2023:
+->This week I worked on implementing the basic UI for the app in Kotlin
+    I sketched a preliminary design of the UI that will serve as a reference when designing the actual UI in Kotlin
+    The app’s UI will not contain any functionality but will provide a skeletal outline of how the app will look
+->I have been researching how to program in Kotlin and use Android Studio
+    I have been taking courses provided by Google to learn and understand how to program and make apps within Kotlin.
+    I have several reference UI codes to assist me in the design of the AWG app.
+
+Sept. 25, 2023:
+->This week was dedicated to researching and improving upon my Kotlin coding skills
+    I took more codelabs that taught programming basics and how to create my first Android app.
+->I cleaned up the UI to be less blocky and cumbersome and discovered a few problems I need to fix such as the horizontal orientation not looking as expected
+    Not much functionality progress was made in the app besides the UI tweaks
+
+Oct. 02, 2023:
+->This week I did further research into Kotlin and took more codelab practices
+    Research focused on buttons, variables, state changes, and text fields.
+->I implemented Text Fields into the app that allow users to type in any numeric value
+    A bulk of my time was spent researching and learning about how to use and implement Text Fields as this is the main user interface with the application
+->I added buttons titled "Mode" and "Settings" that have no functionality built-in yet.
+
+Oct. 09, 2023:
+->This week I replaced the mode button with an individual sine and square button
+    This was a temporary change to allow me to test button functionality and when each button was pressed a new stock image would be displayed.
+->Fixed earlier UI complications
+    Added vertical scroll for when the app is in horizontal mode
+    Fixed an issue where values stored in the text field would be deleted upon rotation
+
+Oct. 16, 2023:
+->This week I replaced the stock images with an actual graph that was able to display a sine wave based on user input
+->I updated the mode and settings buttons to be dropdown menus with their own subitems
+->For the mode button the text updates depending on the dropdown item selected
+->I adjusted the input text fields to only allow valid inputs to be inserted, otherwise an error is displayed and the box turns red
+->I added a settings button that will be used to export/import user data
+
 
