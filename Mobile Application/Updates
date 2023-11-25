@@ -33,4 +33,99 @@ Oct. 16, 2023:
 ->I adjusted the input text fields to only allow valid inputs to be inserted, otherwise an error is displayed and the box turns red
 ->I added a settings button that will be used to export/import user data
 
+Friday, October 20th, 2023:
+Implemented Mode Button
+->Title switches on mode select
+->Dropdown menu works
+->*Add function call*
 
+Implemented Settings Button
+->Dropdown menu with import/export options
+->*Need to Create Import/Export Functionality*
+
+Implemented User Text Fields
+->Constrainted Input Fields
+->Shows error on bad inputs
+->*Set value based on error boolean*
+
+Saturday, October 21st, 2023:
+Created Working Functions
+->Sine, Square, Triangle
+->*Need to add Sawtooth (and others?)*
+->Improved Text Fields
+->Fully Functioning
+
+*NEED TO ADD GRAPH AND BUTTON FUNCTION CALLS*
+
+Wednesday, October 25th, 2023:
+*FIX INCORRECT NEGATIVE OFFSET*
+*FIX SAWTOOTH EQUATION*
+*ADD EXPORT*
+*ADD FREEFORM*
+
+Thursday, October 26th, 2023:
+-> Fixed Sawtooth Function
+-> Fixed Negative Offset Problem
+-> Cleaned Up Graph UI
+-> Added App Icon & Offical App Name
+
+*ADD EXPORT*
+*ADD FREEFORM*
+
+Friday, October 27th, 2023:
+->Researched how to add import/export
+->Researched how to add drawing capabilities
+->Researched how to fix screen rotation scaling
+
+Monday, October 30th, 2023:
+->Added Export data to .txt file
+--->Simulation Lags when exporting too many points
+
+Tuesday, October 31st, 2023:
+->Visual Upgrades
+->Fixed rotation view
+
+Thursday, November 2nd, 2023:
+->Researched how to implement drawing function
+
+Friday, November 3rd, 2023:
+->More research into drawing function
+->Can draw in wave window
+->Can reset window if needed
+
+Sunday, November 5th, 2023:
+->Preload graph with data on mode select
+
+Tuesday, November 7th, 2023:
+->ImportExport Code Improvments
+--->Fix export function
+
+Wednesday, November 8th, 2023:
+->FunctionList Code Improvments
+--->Fix graph generation functions
+
+Thursday, November 9th, 2023:
+->MainActivity Code Improvments
+--->Fix data verification
+--->Fix Buttons
+--->Fix wave window
+--->Fix text fields
+
+Tuesday, November 14th, 2023:
+->Improved view wave window
+
+Wednesday, November 15th, 2023:
+->Implemented Drawing Function
+
+Thursday-Saturday, November 16th-18, 2023:
+->Recovering from Covid
+
+Sunday, November 19th, 2023:
+->Implemented Freehand Export
+--->Some bugs still exist
+
+Friday, November 24th, 2023:
+->Implemented Bluetooth Scan and Permissions
+
+Saturday, November 25th, 2023:
+->Added Navigation between Bluetooth and Home Screen
