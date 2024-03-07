@@ -16,3 +16,22 @@ October 31
 - PCB design and schematic has been sent to Lusher again for approval. Has been reviewed by team. Got dev kit.
 November 6
 - Presented Final Presentation. PCB order was placed the Friday before. Will practice soldering and setting up programming environment/IDE for dev kit
+
+~~~~~~~~~~~~~~~ ECEN 404 ~~~~~~~~~~~~~~~
+
+January 31, 2024
+- PCB from last semester is still intact and turns on. However, unable to download code (most likely fried some components last semester from running 5 volts instead of 3.3 volts through it. 
+  - fixed PCB design (switches not shorted)
+  - Bluetooth capabilities uploaded via Arduino (approval from sponsor/professor)
+
+February 14, 2024
+- Using Dev Kit until PCB comes in
+  - pairing and conneciton with Android app achieved with app acting as the client and MCU as the server
+  - PCB reviewed, removed R2, added mounting holes
+  - Using Bluetooth Classic for connection, has unique MAC address
+
+February 28, 2024
+- PCB ordered and deliverd
+- 65,535 successfully (but slowly) transferred to dev kit via Bluetooth
+- soldered new board
+- Capstone Blitz: powered new board, successfully uploaded Bluetooth Classic code and imported data points
