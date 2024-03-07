@@ -35,3 +35,6 @@ February 28, 2024
 - 65,535 successfully (but slowly) transferred to dev kit via Bluetooth
 - soldered new board
 - Capstone Blitz: powered new board, successfully uploaded Bluetooth Classic code and imported data points
+
+March 7, 2024
+- MCU and Android app fully integrated
