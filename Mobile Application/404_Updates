@@ -1,0 +1,64 @@
+Week of January 22th, 2024: (6 Hours)
+-Validated System again
+->App runs as it did at the end of 403
+
+Week of January 29th, 2024: (6 Hours)-Present
+-Researched how to connect via bluetooth
+-Able to scan for MCU
+->Failed to Pair
+
+Week of February 5th, 2024: (14 Hours)
+-Implemented Pairing Abilities
+->Successfully Paired to Dev kit for the first time
+-Implemented Connection Abilities
+->Failed to Connect
+-Added Debug Code Lines for Pairing/Connecting
+
+Week of February 12th, 2024: (6 Hours)-Present
+-First connection between Dev Kit & App
+->First Data transfer
+->10 points sent
+->Inconsistent Connection
+
+Week of February 19th, 2024: (6 Hours)
+-Fixed Connection Loss between MCU & APP
+-Able to send more Data Points
+->10min to upload 65,355 points
+
+Week of February 26th, 2024: (10 Hours)-Present
+-New Landing Page
+-Met with Lusher to discuss data transfer
+->Updated export values to be DAC values
+-Improved Data Export
+->No crashes during export
+->Consistent data upload
+-Tested 16,384 point export
+->Speed of 1min 45sec
+
+Week of March 4th, 2024: (4 Hour)
+-Fixed Landing Page Issues
+-Updated how app connects to mcu
+->Checks for Device address instead of name
+-Successfully Sent 65,535 Points in 7min 9sec
+
+Week of March 18th, 2024: (16 Hours)-Present
+-Improved Text Field Inputs
+->Max of 6 characters & 1 leading zero
+-Improved Landing Page
+->Can skip connection while scanning
+->Can reconnect if skip scan is accidently clicked
+-Updated graph screen top row buttons
+->Home Icon, Bluetooth Icon, Undo Icon
+-Progress bar for data transfer
+->Indeterminate indicator
+
+Week of March 25th, 2024: (11 Hours)
+-Update how dataPoints are calculated
+->Switched from String Builder to Array
+-Added Landing page horizontal view
+-Progress Bar for both download and export
+
+Week of April 1st, 2024: (2 Hours)
+-Toast displays once when telling user to wait
+-NEED TO TEST: BLUETOOTH CONNECT BUTTONS
+-If connection lost while exporting, cancel coroutine
