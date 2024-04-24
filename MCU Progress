@@ -38,3 +38,23 @@ February 28, 2024
 
 March 7, 2024
 - MCU and Android app fully integrated
+
+March 11, 2024
+- Spring Break
+
+March 20, 2024
+- All 65,535 data points successfully read and writes to MCU consistently
+- added time step value at beginning
+- ordered and received IDC cables to connect to FPGA
+
+April 3, 2024
+- developed code to use SPI to export data to FPGA
+- assisted with further app functionality debugging
+
+April 17, 2024
+- MCU placed in housing
+- antenna received; much better/more reliable Bluetooth connection; wider range
+- began integration with FPGA
+- MCU successfully outputs on oscilloscope SPI setting
+
+
