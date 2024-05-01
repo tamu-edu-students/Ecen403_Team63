@@ -62,3 +62,16 @@ Week of April 1st, 2024: (2 Hours)
 -Toast displays once when telling user to wait
 -NEED TO TEST: BLUETOOTH CONNECT BUTTONS
 -If connection lost while exporting, cancel coroutine
+
+Week of April 8th, 2024: (5 Hours)
+-Edited how export code functions
+->String Editing to Byte Management
+-Fixed Export Not Cancelling on BT Loss
+
+Week of April 15th, 2024: (3 Hours)
+-Added Option to Export based on Channel
+-Changed data export from DAC Values to HEX Values
+
+Week of April 22nd, 2024: (6 Hours)
+-Last minute troubleshooting between systems
+-Gave Final Demo and Showcase presentation
