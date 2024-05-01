@@ -1,0 +1,175 @@
+#include "BluetoothSerial.h"
+#include <SPI.h>
+
+//#define USE_PIN // Uncomment this to use PIN during pairing. The pin is specified on the line below
+//const char *pin = "1234"; // Change this to more secure PIN.
+
+String device_name = "AWG_63";
+
+
+#ifdef ALTERNATE_PINS
+  #define VSPI_MISO   2
+  #define VSPI_MOSI   4
+  #define VSPI_SCLK   0
+  #define VSPI_SS     33
+
+  #define HSPI_MISO   26
+  #define HSPI_MOSI   27
+  #define HSPI_SCLK   25
+  #define HSPI_SS     32
+#else
+  #define VSPI_MISO   MISO  //Master In Slave Out (Serial Data Out)
+  #define VSPI_MOSI   MOSI  //Master Out Slave In (Serial Data In)
+  #define VSPI_SCLK   SCK   //Serial Clock
+  #define VSPI_SS     SS    //Chip Select
+
+  #define HSPI_MISO   12
+  #define HSPI_MOSI   13
+  #define HSPI_SCLK   14
+  #define HSPI_SS     15
+#endif
+
+#if CONFIG_IDF_TARGET_ESP32S2 || CONFIG_IDF_TARGET_ESP32S3
+#define VSPI FSPI
+#endif
+
+static const int spiClk = 10000; // 1 MHz
+
+//uninitalised pointers to SPI objects
+SPIClass * vspi = NULL;
+//SPIClass * hspi = NULL;
+
+#if !defined(CONFIG_BT_ENABLED) || !defined(CONFIG_BLUEDROID_ENABLED)
+#error Bluetooth is not enabled! Please run `make menuconfig` to and enable it
+#endif
+
+#if !defined(CONFIG_BT_SPP_ENABLED)
+#error Serial Bluetooth not available or not enabled. It is only available for the ESP32 chip.
+#endif
+
+//const int MAX_DATA_POINTS = 65537;
+
+BluetoothSerial SerialBT;
+
+//int dataPoints[MAX_DATA_POINTS];
+//int numPoints = 0;
+
+void setup() {
+  Serial.begin(115200);
+  	  while (!Serial) {
+		    ; // wait
+	  }
+  	Serial.println("spi_byte");
+  SerialBT.begin(device_name); //Bluetooth device name
+  //Serial.begin(data);
+  Serial.printf("The device with name \"%s\" is started.\nNow you can pair it with Bluetooth!\n", device_name.c_str());
+  
+  //Serial.print("MOSI: ");
+  //Serial.println(MOSI);
+  //Serial.print("MISO: ");
+  //Serial.println(MISO);
+  //Serial.print("SCK: ");
+  //Serial.println(SCK);
+  //Serial.print("SS: ");
+  //Serial.println(SS);  
+  
+  //initialise two instances of the SPIClass attached to VSPI and HSPI respectively
+  vspi = new SPIClass(VSPI);  //SPI3
+  //hspi = new SPIClass(HSPI);  //SPI0, SPI1, SPI2; SPI0 and SPI1 internally communicate with built-in flash memory
+  
+  //clock miso mosi ss
+
+#ifndef ALTERNATE_PINS
+  //initialise vspi with default pins
+  //SCLK = 18, MISO = 19, MOSI = 23, SS = 5
+  vspi->begin(SCK, MISO, MOSI, SS);
+#else
+  //alternatively route through GPIO pins of your choice
+  vspi->begin(SCK, MISO, MOSI, SS); //SCLK, MISO, MOSI, SS
+#endif
+
+//#ifndef ALTERNATE_PINS
+  //initialise hspi with default pins
+  //SCLK = 14, MISO = 12, MOSI = 13, SS = 15
+  //hspi->begin();
+//#else
+  //alternatively route through GPIO pins
+  //hspi->begin(HSPI_SCLK, HSPI_MISO, HSPI_MOSI, HSPI_SS); //SCLK, MISO, MOSI, SS
+//#endif
+
+  //set up slave select pins as outputs as the Arduino API
+  //doesn't handle automatically pulling SS low
+  pinMode(vspi->pinSS(), OUTPUT); //VSPI SS
+//  pinMode(hspi->pinSS(), OUTPUT); //HSPI SS
+  //byte currentAWGdata;// = 0; //try adding this in again to see if it'll reset after each import
+  //if (Serial.available()) {
+    //int data = 29771;
+    //SerialBT.write(Serial.read());
+  //}
+  //if (SerialBT.available()) {
+    //currentAWGdata = 0; //hopefully resets data everytime data is sent over?
+    //currentAWGdata = Serial.write(SerialBT.read());
+    //Serial.println();
+    //if (currentAWGdata != previousAWGdata) {
+
+      //Serial.println(currentAWGdata);
+      //Serial.println();
+
+      //previousAWGdata = currentAWGdata;
+    //}
+
+    //1st data pt is period, last is stop value. take out fisrt and last value, take length of what lest: period/lenght = time step ->rewrite period with time step
+  //}
+  //Serial.println(currentAWGdata); //for testing with hardcoded input
+
+  //use the SPI buses
+  //spiCommand(vspi, 0b1111111111111111); //currentAWGdata); //0b1);// currentAWGdata);//0b01010101); //AWGdata);//0b01010101); // junk data to illustrate usage; put variable data in here after testing junk
+  //delay(1000);
+  //spiCommand(vspi, 0b0);
+  //spiCommand(hspi, 0b11001100);
+  //delay(100);
+  //SPI.end();
+}
+//int currentAWGdata;//327673449136216379403966541389431144483946563482881724518970206942241924144258682759329317310423276632767344913621637940396654138943114448394656348288172451897020694224192414425868275932931731042327663276733111334563380134146344913483635181355263587129662300073035230697310423138731732320773242232766;//32767331113345633801341463449134836351813552635871296623000730352306973104231387317323207732422327663276734491362163794039;
+//int previousAWGdata;
+
+void loop() {
+  int currentAWGdata;// = 0; //try adding this in again to see if it'll reset after each import
+  if (Serial.available()) {
+    //int data = 29771;
+    //SerialBT.write(Serial.read());
+  }
+  if (SerialBT.available()) {
+    //currentAWGdata = 0; //hopefully resets data everytime data is sent over?
+    currentAWGdata = Serial.write(SerialBT.read());
+    //Serial.println();
+    //if (currentAWGdata != previousAWGdata) {
+
+      //Serial.println(currentAWGdata);
+      //Serial.println();
+
+      //previousAWGdata = currentAWGdata;
+    //}
+
+    //1st data pt is period, last is stop value. take out fisrt and last value, take length of what lest: period/lenght = time step ->rewrite period with time step
+  }
+  //Serial.println(currentAWGdata); //for testing with hardcoded input
+
+  //use the SPI buses
+  spiCommand(vspi, currentAWGdata);//0b1111111111111111);//); //currentAWGdata); //0b1);// currentAWGdata);//0b01010101); //AWGdata);//0b01010101); // junk data to illustrate usage; put variable data in here after testing junk
+  //delay(1000);
+  //spiCommand(vspi, 0b0);
+  //spiCommand(hspi, 0b11001100);
+  //delay(100);
+  //SPI.end();
+}
+
+void spiCommand(SPIClass *spi, byte data) {//byte data) {
+  //use it as you would the regular arduino SPI API
+  spi->beginTransaction(SPISettings(spiClk, MSBFIRST, SPI_MODE0));
+  digitalWrite(spi->pinSS(), LOW); //pull SS low to prep other end for transfer
+  spi->transfer(data);
+  digitalWrite(spi->pinSS(), HIGH); //pull ss high to signify end of data transfer
+  spi->endTransaction();
+}
+//spi->end();
